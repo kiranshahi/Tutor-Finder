@@ -1,0 +1,74 @@
+﻿@model IEnumerable<TutorApplication.Models.PaymentDB.PaymentModified>
+
+@{
+    ViewBag.Title = "ViewPayment";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+<div class="row">
+
+    <div class="span9">
+
+        <div class="well">
+            <h3>View Payment</h3>
+            <hr class="soft" />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudetId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TutorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudetId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TutorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentDate)
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+}
+
+</table>
+            </div>
+        </div>
+    </div>
+

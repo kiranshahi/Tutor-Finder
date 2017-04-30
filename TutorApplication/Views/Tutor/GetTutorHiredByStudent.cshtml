@@ -1,0 +1,64 @@
+﻿@model IEnumerable<TutorApplication.Models.Hire>
+
+@{
+    ViewBag.Title = "GetTutorHiredByStudent";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+}
+
+<<div class="row">
+
+    <div class="span9">
+
+        <div class="well">
+            <h3>Hire Details</h3>
+            <hr class="soft" />
+<table class="table">
+    <tr>
+        
+       <th>
+           Student Name
+        </th>
+        <th>
+           From Time
+        </th>
+        <th>
+           To Time
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalFee)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+         <td>
+            @Html.DisplayFor(modelItem => item.Student.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Schedule.FromTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Schedule.ToTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalFee)
+        </td>
+    </tr>
+}
+
+</table>
+            </div>
+        </div>
+    </div>

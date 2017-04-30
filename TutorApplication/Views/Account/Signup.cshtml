@@ -1,0 +1,94 @@
+﻿@model TutorApplication.Models.ViewModel.UserViewModel
+
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.8.3.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script>
+    function onSuccess() {
+        $("#Firstname").val("");
+        $("#Lastname").val("");
+        $("#Email").val("");
+        $("#Password").val("");
+        $("#RetypePassword").val("");
+    }
+</script>
+
+@using (Ajax.BeginForm("Signup", "Account", new AjaxOptions { UpdateTargetId = "result", OnSuccess = "onSuccess" }))
+{
+    @Html.ValidationSummary(true)
+     <div class="row">
+    
+    <div class="span9">
+        <div class="well">
+            <h5>CREATE YOUR ACCOUNT</h5>
+            <br />
+            Enter your details to create your account<br />
+            <br />
+            <br />
+
+
+            <div class="control-group">
+                <label class="control-label" for="inputFname">First name <sup>*</sup></label>
+                <div class="controls">
+                    @Html.TextBoxFor(model => model.Firstname)
+                    @Html.ValidationMessageFor(model => model.Firstname)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputLname">Last name <sup>*</sup></label>
+                <div class="controls">
+                    @Html.TextBoxFor(model => model.Lastname)
+                    @Html.ValidationMessageFor(model => model.Lastname)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Email <sup>*</sup></label>
+                <div class="controls">
+                    @Html.TextBoxFor(model => model.EmailId)
+                    @Html.ValidationMessageFor(model => model.EmailId)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Password <sup>*</sup></label>
+                <div class="controls">
+                    @Html.PasswordFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Retype Password <sup>*</sup></label>
+                <div class="controls">
+                    @Html.PasswordFor(model => model.RetypePassword)
+                    @Html.ValidationMessageFor(model => model.RetypePassword)
+                </div>
+            </div>
+             <div class="control-group">
+                <label class="control-label">Role Name <sup>*</sup></label>
+                <div class="controls">
+                    @Html.DropDownListFor(model => model.RoleId,new  SelectList(ViewBag.Roles,"RoleId","RoleName"),"Choose Roles")
+                    @Html.ValidationMessageFor(model => model.RoleId)
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="defaultBtn">Sign Up</button>
+                </div>
+            </div>
+            <div id="result" style="font-family: Verdana; color: green; font-weight: bold">
+            </div>
+
+        </div>
+    </div>
+         </div>
+    
+    
+    
+    
+}

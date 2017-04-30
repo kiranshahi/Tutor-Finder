@@ -1,0 +1,96 @@
+﻿@model TutorApplication.Models.ViewModel.ScheduleViewModel
+
+@{
+    ViewBag.Title = "Schedule";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+   
+}
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+   @* <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>*@
+    <script src="~/Scripts/TutorTime.js"></script>
+
+
+
+  <div class="container">
+     
+        <h2>Timing Record</h2> 
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Add New Timing</button><br /><br />
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    
+                    <th>
+                        From Time
+                    </th>
+                    <th>
+                        To Time
+                    </th>
+                   
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+               
+            </tbody>
+        </table>
+     
+  
+
+
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">&times;</span></button>*@
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Add Scedule</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                           
+
+
+                           @Html.HiddenFor(model => model.ScheduleId)
+                           
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">From Time</label>
+                            <input type="text" class="form-control" id="FromTime" placeholder="1:00 AM"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="Age">To Time</label>
+                            <input type="text" class="form-control" id="ToTime" placeholder="2:00 AM" />
+                        </div>
+                         <div class="form-group">
+                           
+
+
+                           @Html.HiddenFor(model => model.TutorId)
+                           
+                        </div>
+                        <div class="form-group">
+                           
+
+
+                           @Html.HiddenFor(model => model.Status)
+                           
+                        </div>
+                      
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                    <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>        
+    </div>
+       </div>
+

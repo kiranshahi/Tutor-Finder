@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="17258c7e07ac427d9d7e25c0f4f5d3c3" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="OnlineTutorModel.Hire" Width="1.5" PointX="5.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTutorModel.Payment" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTutorModel.Progress" Width="1.5" PointX="0.625" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTutorModel.Qualification" Width="1.5" PointX="9.375" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTutorModel.Role" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTutorModel.Schedule" Width="1.5" PointX="11.625" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTutorModel.Student" Width="1.5" PointX="4.875" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTutorModel.Subject" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTutorModel.sysdiagram" Width="1.5" PointX="2.375" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTutorModel.tblUserInfo" Width="1.5" PointX="7.625" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTutorModel.Tutor" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTutorModel.UserRole" Width="1.5" PointX="10" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="OnlineTutorModel.FK_Hire_Schedule" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTutorModel.FK_Hire_Schedule1" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTutorModel.FK_Hire_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTutorModel.FK_Hire_Tutor" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTutorModel.FK_Payment_Hire" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTutorModel.FK_UserRole_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTutorModel.FK_Schedule_Tutor" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTutorModel.FK_Tutor_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTutorModel.FK_UserRole_tblUserInfo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

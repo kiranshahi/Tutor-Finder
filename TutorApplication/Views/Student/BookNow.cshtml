@@ -1,0 +1,150 @@
+﻿@model TutorApplication.Models.ViewModel.HireViewModel
+
+@{
+    ViewBag.Title = "BookNow";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+<script src="~/calenderscipts/jquery-1.7.1.min.js"></script>
+<script src="~/calenderscipts/jquery-ui-1.8.20.min.js"></script>
+<link href="~/calenderscipts/jquery-ui.min.css" rel="stylesheet" />
+<script src="~/assets/js/bootstrap.js"></script>
+<link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+
+<script>
+    function GetTotalAmount()
+    {
+       
+        var theResponse = null;
+        $.ajax({
+            url: "/Student/GetAmount",
+            data: { starDate: $('#StartDate').val(), endDate: $('#EndDate').val() },
+            type: "Get",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result)
+            {
+                theResponse = result;
+                $('#TotalFee').val()=result;
+               
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+        return false;
+    }
+</script>
+
+<div class="row">
+
+    <div class="span9">
+
+        <div class="well">
+            <h3>Book Tutor</h3>
+            <hr class="soft" />
+
+         @using (Html.BeginForm("BookNow","Student",FormMethod.Post))
+                        {   
+                @Html.ValidationSummary(true)
+
+                <div class="editor-field">
+                    @Html.HiddenFor(model => model.HireId)
+
+                </div>
+
+     
+                <div class="editor-field">
+                    @Html.HiddenFor(model => model.Tutorid)
+
+                </div>
+
+      
+                <div class="editor-field">
+                    @Html.HiddenFor(model => model.StudentId)
+
+                </div>
+
+      
+                <div class="editor-field">
+                    @Html.HiddenFor(model => model.ScheduleId)
+
+                </div>
+                <table class="table">
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.StartDate)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.StartDate)
+                                @Html.ValidationMessageFor(model => model.StartDate)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.EndDate)
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.EndDate,new { @onchange = "GetTotalAmount();" })
+                                @Html.ValidationMessageFor(model => model.EndDate)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.TotalFee)
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                              
+                                @Html.TextBoxFor(model => model.TotalFee)
+                                @Html.ValidationMessageFor(model => model.TotalFee)
+                                
+                                 
+                             
+                                  
+                                
+                            </div>
+                        </td>
+                    </tr>
+                    <tr><td></td><td> 
+                        
+                    <input type="submit" value="Book Now" />
+                       
+                </td></tr>
+                </table>
+        
+    
+                        }
+            
+            
+        </div>
+    </div>
+</div>
+@ViewBag.Message
+<script>
+    $(function () {
+        $('#StartDate').datepicker();
+    });
+
+    $(function () {
+        $('#EndDate').datepicker();
+    });
+</script>
+
+
+

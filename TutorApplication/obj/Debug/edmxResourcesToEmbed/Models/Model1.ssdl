@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineTutorModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="OnlineTutorModelStoreContainer">
+    <EntitySet Name="Hire" EntityType="OnlineTutorModel.Store.Hire" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Payment" EntityType="OnlineTutorModel.Store.Payment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Progress" EntityType="OnlineTutorModel.Store.Progress" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Qualification" EntityType="OnlineTutorModel.Store.Qualification" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Role" EntityType="OnlineTutorModel.Store.Role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Schedule" EntityType="OnlineTutorModel.Store.Schedule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Student" EntityType="OnlineTutorModel.Store.Student" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subject" EntityType="OnlineTutorModel.Store.Subject" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="OnlineTutorModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblUserInfo" EntityType="OnlineTutorModel.Store.tblUserInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tutor" EntityType="OnlineTutorModel.Store.Tutor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRole" EntityType="OnlineTutorModel.Store.UserRole" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Hire_Schedule" Association="OnlineTutorModel.Store.FK_Hire_Schedule">
+      <End Role="Schedule" EntitySet="Schedule" />
+      <End Role="Hire" EntitySet="Hire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hire_Schedule1" Association="OnlineTutorModel.Store.FK_Hire_Schedule1">
+      <End Role="Schedule" EntitySet="Schedule" />
+      <End Role="Hire" EntitySet="Hire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hire_Student" Association="OnlineTutorModel.Store.FK_Hire_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Hire" EntitySet="Hire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hire_Tutor" Association="OnlineTutorModel.Store.FK_Hire_Tutor">
+      <End Role="Tutor" EntitySet="Tutor" />
+      <End Role="Hire" EntitySet="Hire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Hire" Association="OnlineTutorModel.Store.FK_Payment_Hire">
+      <End Role="Hire" EntitySet="Hire" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_Tutor" Association="OnlineTutorModel.Store.FK_Schedule_Tutor">
+      <End Role="Tutor" EntitySet="Tutor" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tutor_Subject" Association="OnlineTutorModel.Store.FK_Tutor_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Tutor" EntitySet="Tutor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role" Association="OnlineTutorModel.Store.FK_UserRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_tblUserInfo" Association="OnlineTutorModel.Store.FK_UserRole_tblUserInfo">
+      <End Role="tblUserInfo" EntitySet="tblUserInfo" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Hire">
+    <Key>
+      <PropertyRef Name="HireId" />
+    </Key>
+    <Property Name="HireId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Tutorid" Type="int" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="ScheduleId" Type="int" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="TotalFee" Type="decimal" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="HireId" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="PaymentDate" Type="date" />
+    <Property Name="BankVoucherNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Progress">
+    <Key>
+      <PropertyRef Name="ProgressId" />
+    </Key>
+    <Property Name="ProgressId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="TeacherId" Type="int" />
+    <Property Name="ScheduleId" Type="int" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="300" />
+    <Property Name="PresentDays" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Qualification">
+    <Key>
+      <PropertyRef Name="QualificationId" />
+    </Key>
+    <Property Name="QualificationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TutorId" Type="int" />
+    <Property Name="Instution" Type="nvarchar" MaxLength="50" />
+    <Property Name="Board" Type="nvarchar" MaxLength="50" />
+    <Property Name="StartDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="EndDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="CGPA" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FromTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="ToTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="TutorId" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="SubjectId" />
+    </Key>
+    <Property Name="SubjectId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblUserInfo">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tutor">
+    <Key>
+      <PropertyRef Name="TutorId" />
+    </Key>
+    <Property Name="TutorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="DOB" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+    <Property Name="HourlyRate" Type="decimal" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubjectId" Type="int" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="UserRoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="RoleId" Type="int" />
+  </EntityType>
+  <Association Name="FK_Hire_Schedule">
+    <End Role="Schedule" Type="OnlineTutorModel.Store.Schedule" Multiplicity="0..1" />
+    <End Role="Hire" Type="OnlineTutorModel.Store.Hire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="ScheduleId" />
+      </Principal>
+      <Dependent Role="Hire">
+        <PropertyRef Name="ScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hire_Schedule1">
+    <End Role="Schedule" Type="OnlineTutorModel.Store.Schedule" Multiplicity="0..1" />
+    <End Role="Hire" Type="OnlineTutorModel.Store.Hire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="ScheduleId" />
+      </Principal>
+      <Dependent Role="Hire">
+        <PropertyRef Name="ScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hire_Student">
+    <End Role="Student" Type="OnlineTutorModel.Store.Student" Multiplicity="0..1" />
+    <End Role="Hire" Type="OnlineTutorModel.Store.Hire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Hire">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hire_Tutor">
+    <End Role="Tutor" Type="OnlineTutorModel.Store.Tutor" Multiplicity="0..1" />
+    <End Role="Hire" Type="OnlineTutorModel.Store.Hire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tutor">
+        <PropertyRef Name="TutorId" />
+      </Principal>
+      <Dependent Role="Hire">
+        <PropertyRef Name="Tutorid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Hire">
+    <End Role="Hire" Type="OnlineTutorModel.Store.Hire" Multiplicity="0..1" />
+    <End Role="Payment" Type="OnlineTutorModel.Store.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hire">
+        <PropertyRef Name="HireId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="HireId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_Tutor">
+    <End Role="Tutor" Type="OnlineTutorModel.Store.Tutor" Multiplicity="0..1" />
+    <End Role="Schedule" Type="OnlineTutorModel.Store.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tutor">
+        <PropertyRef Name="TutorId" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="TutorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tutor_Subject">
+    <End Role="Subject" Type="OnlineTutorModel.Store.Subject" Multiplicity="0..1" />
+    <End Role="Tutor" Type="OnlineTutorModel.Store.Tutor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="SubjectId" />
+      </Principal>
+      <Dependent Role="Tutor">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role">
+    <End Role="Role" Type="OnlineTutorModel.Store.Role" Multiplicity="0..1" />
+    <End Role="UserRole" Type="OnlineTutorModel.Store.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_tblUserInfo">
+    <End Role="tblUserInfo" Type="OnlineTutorModel.Store.tblUserInfo" Multiplicity="0..1" />
+    <End Role="UserRole" Type="OnlineTutorModel.Store.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserInfo">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

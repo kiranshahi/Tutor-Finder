@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineTutorModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="OnlineTutorEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Hires" EntityType="OnlineTutorModel.Hire" />
+    <EntitySet Name="Payments" EntityType="OnlineTutorModel.Payment" />
+    <EntitySet Name="Progresses" EntityType="OnlineTutorModel.Progress" />
+    <EntitySet Name="Qualifications" EntityType="OnlineTutorModel.Qualification" />
+    <EntitySet Name="Roles" EntityType="OnlineTutorModel.Role" />
+    <EntitySet Name="Schedules" EntityType="OnlineTutorModel.Schedule" />
+    <EntitySet Name="Students" EntityType="OnlineTutorModel.Student" />
+    <EntitySet Name="Subjects" EntityType="OnlineTutorModel.Subject" />
+    <EntitySet Name="sysdiagrams" EntityType="OnlineTutorModel.sysdiagram" />
+    <EntitySet Name="tblUserInfoes" EntityType="OnlineTutorModel.tblUserInfo" />
+    <EntitySet Name="Tutors" EntityType="OnlineTutorModel.Tutor" />
+    <EntitySet Name="UserRoles" EntityType="OnlineTutorModel.UserRole" />
+    <AssociationSet Name="FK_Hire_Schedule" Association="OnlineTutorModel.FK_Hire_Schedule">
+      <End Role="Schedule" EntitySet="Schedules" />
+      <End Role="Hire" EntitySet="Hires" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hire_Schedule1" Association="OnlineTutorModel.FK_Hire_Schedule1">
+      <End Role="Schedule" EntitySet="Schedules" />
+      <End Role="Hire" EntitySet="Hires" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hire_Student" Association="OnlineTutorModel.FK_Hire_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Hire" EntitySet="Hires" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hire_Tutor" Association="OnlineTutorModel.FK_Hire_Tutor">
+      <End Role="Tutor" EntitySet="Tutors" />
+      <End Role="Hire" EntitySet="Hires" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Hire" Association="OnlineTutorModel.FK_Payment_Hire">
+      <End Role="Hire" EntitySet="Hires" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role" Association="OnlineTutorModel.FK_UserRole_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_Tutor" Association="OnlineTutorModel.FK_Schedule_Tutor">
+      <End Role="Tutor" EntitySet="Tutors" />
+      <End Role="Schedule" EntitySet="Schedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tutor_Subject" Association="OnlineTutorModel.FK_Tutor_Subject">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="Tutor" EntitySet="Tutors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_tblUserInfo" Association="OnlineTutorModel.FK_UserRole_tblUserInfo">
+      <End Role="tblUserInfo" EntitySet="tblUserInfoes" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Hire">
+    <Key>
+      <PropertyRef Name="HireId" />
+    </Key>
+    <Property Name="HireId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Tutorid" Type="Int32" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="ScheduleId" Type="Int32" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="TotalFee" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Schedule" Relationship="OnlineTutorModel.FK_Hire_Schedule" FromRole="Hire" ToRole="Schedule" />
+    <NavigationProperty Name="Schedule1" Relationship="OnlineTutorModel.FK_Hire_Schedule1" FromRole="Hire" ToRole="Schedule" />
+    <NavigationProperty Name="Student" Relationship="OnlineTutorModel.FK_Hire_Student" FromRole="Hire" ToRole="Student" />
+    <NavigationProperty Name="Tutor" Relationship="OnlineTutorModel.FK_Hire_Tutor" FromRole="Hire" ToRole="Tutor" />
+    <NavigationProperty Name="Payments" Relationship="OnlineTutorModel.FK_Payment_Hire" FromRole="Hire" ToRole="Payment" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="HireId" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="0" />
+    <Property Name="BankVoucherNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Hire" Relationship="OnlineTutorModel.FK_Payment_Hire" FromRole="Payment" ToRole="Hire" />
+  </EntityType>
+  <EntityType Name="Progress">
+    <Key>
+      <PropertyRef Name="ProgressId" />
+    </Key>
+    <Property Name="ProgressId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="TeacherId" Type="Int32" />
+    <Property Name="ScheduleId" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="PresentDays" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Qualification">
+    <Key>
+      <PropertyRef Name="QualificationId" />
+    </Key>
+    <Property Name="QualificationId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TutorId" Type="Int32" />
+    <Property Name="Instution" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Board" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="StartDate" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EndDate" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CGPA" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="UserRoles" Relationship="OnlineTutorModel.FK_UserRole_Role" FromRole="Role" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FromTime" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ToTime" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="TutorId" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Hires" Relationship="OnlineTutorModel.FK_Hire_Schedule" FromRole="Schedule" ToRole="Hire" />
+    <NavigationProperty Name="Hires1" Relationship="OnlineTutorModel.FK_Hire_Schedule1" FromRole="Schedule" ToRole="Hire" />
+    <NavigationProperty Name="Tutor" Relationship="OnlineTutorModel.FK_Schedule_Tutor" FromRole="Schedule" ToRole="Tutor" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Contact" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EmailId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Hires" Relationship="OnlineTutorModel.FK_Hire_Student" FromRole="Student" ToRole="Hire" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="SubjectId" />
+    </Key>
+    <Property Name="SubjectId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Tutors" Relationship="OnlineTutorModel.FK_Tutor_Subject" FromRole="Subject" ToRole="Tutor" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblUserInfo">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Firstname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Lastname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="UserRoles" Relationship="OnlineTutorModel.FK_UserRole_tblUserInfo" FromRole="tblUserInfo" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="Tutor">
+    <Key>
+      <PropertyRef Name="TutorId" />
+    </Key>
+    <Property Name="TutorId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Nationality" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="HourlyRate" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Contact" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EmailId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Photo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SubjectId" Type="Int32" />
+    <NavigationProperty Name="Hires" Relationship="OnlineTutorModel.FK_Hire_Tutor" FromRole="Tutor" ToRole="Hire" />
+    <NavigationProperty Name="Schedules" Relationship="OnlineTutorModel.FK_Schedule_Tutor" FromRole="Tutor" ToRole="Schedule" />
+    <NavigationProperty Name="Subject" Relationship="OnlineTutorModel.FK_Tutor_Subject" FromRole="Tutor" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="UserRoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="Role" Relationship="OnlineTutorModel.FK_UserRole_Role" FromRole="UserRole" ToRole="Role" />
+    <NavigationProperty Name="tblUserInfo" Relationship="OnlineTutorModel.FK_UserRole_tblUserInfo" FromRole="UserRole" ToRole="tblUserInfo" />
+  </EntityType>
+  <Association Name="FK_Hire_Schedule">
+    <End Role="Schedule" Type="OnlineTutorModel.Schedule" Multiplicity="0..1" />
+    <End Role="Hire" Type="OnlineTutorModel.Hire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="ScheduleId" />
+      </Principal>
+      <Dependent Role="Hire">
+        <PropertyRef Name="ScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hire_Schedule1">
+    <End Role="Schedule" Type="OnlineTutorModel.Schedule" Multiplicity="0..1" />
+    <End Role="Hire" Type="OnlineTutorModel.Hire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="ScheduleId" />
+      </Principal>
+      <Dependent Role="Hire">
+        <PropertyRef Name="ScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hire_Student">
+    <End Role="Student" Type="OnlineTutorModel.Student" Multiplicity="0..1" />
+    <End Role="Hire" Type="OnlineTutorModel.Hire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Hire">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hire_Tutor">
+    <End Role="Tutor" Type="OnlineTutorModel.Tutor" Multiplicity="0..1" />
+    <End Role="Hire" Type="OnlineTutorModel.Hire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tutor">
+        <PropertyRef Name="TutorId" />
+      </Principal>
+      <Dependent Role="Hire">
+        <PropertyRef Name="Tutorid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Hire">
+    <End Role="Hire" Type="OnlineTutorModel.Hire" Multiplicity="0..1" />
+    <End Role="Payment" Type="OnlineTutorModel.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hire">
+        <PropertyRef Name="HireId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="HireId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role">
+    <End Role="Role" Type="OnlineTutorModel.Role" Multiplicity="0..1" />
+    <End Role="UserRole" Type="OnlineTutorModel.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_Tutor">
+    <End Role="Tutor" Type="OnlineTutorModel.Tutor" Multiplicity="0..1" />
+    <End Role="Schedule" Type="OnlineTutorModel.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tutor">
+        <PropertyRef Name="TutorId" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="TutorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tutor_Subject">
+    <End Role="Subject" Type="OnlineTutorModel.Subject" Multiplicity="0..1" />
+    <End Role="Tutor" Type="OnlineTutorModel.Tutor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="SubjectId" />
+      </Principal>
+      <Dependent Role="Tutor">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_tblUserInfo">
+    <End Role="tblUserInfo" Type="OnlineTutorModel.tblUserInfo" Multiplicity="0..1" />
+    <End Role="UserRole" Type="OnlineTutorModel.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserInfo">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

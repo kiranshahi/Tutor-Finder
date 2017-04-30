@@ -1,0 +1,54 @@
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\TutorApplication.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\TutorApplication.pdb
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\Antlr3.Runtime.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\EntityFramework.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\Microsoft.Web.Infrastructure.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\Newtonsoft.Json.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.Mvc.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.Optimization.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.Providers.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.Razor.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.WebPages.Deployment.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.WebPages.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.WebPages.Razor.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\WebGrease.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\EntityFramework.xml
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\Newtonsoft.Json.xml
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.Mvc.xml
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.Razor.xml
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.WebPages.xml
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.WebPages.Deployment.xml
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\bin\System.Web.WebPages.Razor.xml
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\obj\Debug\TutorApplication.csprojResolveAssemblyReference.cache
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\obj\Debug\TutorApplication.dll
+c:\users\suneel\documents\visual studio 2012\Projects\TutorApplication\TutorApplication\obj\Debug\TutorApplication.pdb
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\TutorApplication.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\TutorApplication.pdb
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\Antlr3.Runtime.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\EntityFramework.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\Microsoft.Web.Infrastructure.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\Newtonsoft.Json.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Net.Http.Formatting.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.Http.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.Http.WebHost.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.Mvc.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.Optimization.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.Providers.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.Razor.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.WebPages.Deployment.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.WebPages.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.WebPages.Razor.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\WebGrease.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\EntityFramework.xml
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\Newtonsoft.Json.xml
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Net.Http.Formatting.xml
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.Http.xml
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.Http.WebHost.xml
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.Mvc.xml
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.Razor.xml
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.WebPages.xml
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.WebPages.Deployment.xml
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\bin\System.Web.WebPages.Razor.xml
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\obj\Debug\TutorApplication.dll
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\obj\Debug\TutorApplication.pdb
+E:\StudentProjectProgresss\TutorApplication\TutorApplication\obj\Debug\TutorApplication.csprojResolveAssemblyReference.cache

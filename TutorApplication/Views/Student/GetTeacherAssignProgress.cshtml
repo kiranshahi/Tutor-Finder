@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TutorApplication.Models.ViewModel.ProgressViewModel>
+
+@{
+    ViewBag.Title = "GetTeacherAssignProgress";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+
+
+<div class="row">
+
+    <div class="span9">
+
+        <div class="well">
+            <h3>Select Student To Add Progress</h3>
+            <hr class="soft" />
+<table class="table table-bordered table-hover">
+    <tr>
+       
+        
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherName)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.FromTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToTime)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherName)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.FromTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToTime)
+        </td>
+        
+        <td>
+            @Html.ActionLink("View Progress", "ProgressDetailGivenByTeacher", new {id=item.TeacherId}) |
+           
+        </td>
+    </tr>
+}
+
+</table>
+            </div>
+        </div>
+    </div>

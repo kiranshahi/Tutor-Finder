@@ -1,0 +1,205 @@
+﻿@model TutorApplication.Models.ViewModel.TutorViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+}
+
+
+@*<script src="~/Scripts/jquery-1.8.3.min.js"></script>*@
+<script src="~/calenderscipts/jquery-ui-1.8.20.min.js"></script>
+<link href="~/calenderscipts/jquery-ui.min.css" rel="stylesheet" />
+
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+<div class="row">
+
+    <div class="span9">
+
+        <div class="well">
+            <h3>Fill Your Information</h3>
+            <hr class="soft" />
+
+            @using (Html.BeginForm("Index", "Tutor",FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true)
+
+              
+                <table  style="border:none; padding:2px; width:100%">
+                    <tr><td><div class="control-group">
+                    <label class="control-label" for="inputFname">Name <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div></td><td>
+                    <div class="control-group">
+                    <label class="control-label" for="inputLname">Date of Birth <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.DOB)
+                        @Html.ValidationMessageFor(model => model.DOB)
+                    </div>
+                </div>
+                           </td></tr>
+                     <tr><td><div class="control-group">
+                    <label class="control-label" for="inputEmail">Nationality <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.Nationality)
+                        @Html.ValidationMessageFor(model => model.Nationality)
+                    </div>
+                </div></td><td><div class="control-group">
+                    <label class="control-label" for="inputEmail">Hourly Rate <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.HourlyRate)
+                        @Html.ValidationMessageFor(model => model.HourlyRate)
+                    </div>
+                </div></td></tr>
+                     <tr><td><div class="control-group">
+                    <label class="control-label" for="inputEmail">Contact <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.Contact)
+                        @Html.ValidationMessageFor(model => model.Contact)
+                    </div>
+                </div></td><td><div class="control-group">
+
+                    <div class="controls">
+                        @Html.HiddenFor(model => model.EmailId)
+
+
+
+                    </div>
+                </div></td></tr>
+                    <tr><td><div class="control-group">
+                    <label class="control-label">Address <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.TextAreaFor(model => model.Address)
+                        @Html.ValidationMessageFor(model => model.Address)
+
+
+                    </div>
+                </div></td><td> <div class="control-group">
+                    <label class="control-label">Photo <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.HiddenFor(model => model.Photo)
+                        @Html.TextBoxFor(model => model.Photo, new { type = "file" })
+                        @Html.ValidationMessageFor(model => model.Photo)
+
+
+                    </div>
+                </div></td></tr>
+                    <tr><td><div class="control-group">
+                    <label class="control-label">Interested Subject <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.DropDownListFor(model => model.SubjectId, new SelectList(ViewBag.Subjects, "SubjectId", "SubjectName"), "Choose Subject")
+                        @Html.ValidationMessageFor(model => model.SubjectId)
+
+
+                    </div>
+                </div></td><td></td></tr>
+                </table>
+       
+           
+                
+                
+                	
+                	
+                	       
+              
+                
+                
+               
+              
+                <h3>Fill Your Qualification</h3>
+                <hr class="soft" />
+              
+              <table style="border:none; padding:2px; width:100%">
+                  <tr><td><div class="control-group">
+                    <label class="control-label" for="inputFname">Instution <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.Instution)
+                        @Html.ValidationMessageFor(model => model.Instution)
+                    </div>
+                </div></td><td><div class="control-group">
+                    <label class="control-label" for="inputLname">Board <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.Board)
+                        @Html.ValidationMessageFor(model => model.Board)
+                    </div>
+                </div></td></tr>
+                  <tr><td><div class="control-group">
+                    <label class="control-label" for="inputEmail">Start Date <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.StartDate)
+                        @Html.ValidationMessageFor(model => model.StartDate)
+                    </div>
+                </div></td><td><div class="control-group">
+                    <label class="control-label" for="inputEmail">End Date <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.EndDate)
+                        @Html.ValidationMessageFor(model => model.EndDate)
+                    </div>
+                </div></td></tr>
+                  <tr><td><div class="control-group">
+                    <label class="control-label" for="inputEmail">CGPA <sup>*</sup></label>
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.CGPA)
+                        @Html.ValidationMessageFor(model => model.CGPA)
+                    </div>
+                </div></td><td></td></tr>
+              </table>
+              
+              
+                
+                
+                	
+                	
+                	 
+        
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="defaultBtn">@ViewBag.SaveText</button>
+                    </div>
+                </div>
+             
+    
+                <div id="result" style="font-family: Verdana; color: green; font-weight: bold">
+                </div>
+                @ViewBag.Message
+		
+		
+    
+   
+            }
+
+        </div>
+
+
+
+
+
+        
+
+
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#DOB').datepicker();
+    });
+
+    $(function () {
+        $('#StartDate').datepicker();
+    });
+    $(function () {
+        $('#EndDate').datepicker();
+    });
+</script>
+
+
+
+

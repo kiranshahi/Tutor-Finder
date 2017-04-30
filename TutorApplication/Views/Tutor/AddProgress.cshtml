@@ -1,0 +1,91 @@
+﻿@model TutorApplication.Models.ViewModel.ProgressViewModel
+
+@{
+    ViewBag.Title = "AddProgress";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+}
+
+<div class="row">
+
+    <div class="span9">
+
+        <div class="well">
+            <h3>Select Student To Add Progress</h3>
+            <hr class="soft" />
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+   
+
+        
+
+       
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.StudentId)
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StudentName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StudentName)
+            @Html.ValidationMessageFor(model => model.StudentName)
+        </div>
+
+       
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.TeacherId)
+          
+        </div>
+
+       
+
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.ScheduleId)
+        
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FromTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FromTime)
+            @Html.ValidationMessageFor(model => model.FromTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ToTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ToTime)
+            @Html.ValidationMessageFor(model => model.ToTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comment)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Comment)
+            @Html.ValidationMessageFor(model => model.Comment)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PresentDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.PresentDate)
+            @Html.ValidationMessageFor(model => model.PresentDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Add Progress" />
+        </p>
+    @ViewBag.Message
+}
+            @Html.ActionLink("Back To List", "GetStudentByTutorId");
+
+</div>
+        </div>
+    </div>

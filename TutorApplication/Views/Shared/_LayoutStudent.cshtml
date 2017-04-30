@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    
+    @Styles.Render("~/assets/css")
+   @* <link href="@Url.Content("assets/css/bootstrap.css")" rel="stylesheet" type="text/css" />*@
+
+    <!-- Customize styles -->
+    @*<link href="style.css" rel="stylesheet" />*@
+    <!-- font awesome styles -->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!--[if IE 7]>
+			<link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+		<![endif]-->
+
+    <!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+</head>
+<body>
+     <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="topNav">
+            <div class="container">
+                <div class="alignR">
+
+                    <div style="float:right">
+                        @{if(Request.IsAuthenticated)
+                {
+                    using(Html.BeginForm("LogOut","Account",FormMethod.Post, new{id="logoutForm"}))
+                    {
+                        <a href="Javascript:document.getElementById('logoutForm').submit()">Logout</a>
+                    }
+                }
+                else
+                {
+                    @Html.ActionLink("Login", "Account", "Account")
+                }
+            
+            }
+
+                    </div>
+                                
+               
+
+                   @* <a href="index.html"><span class="icon-home"></span>Logout</a>*@
+
+                  <div style="float:right"> <a href="#"><span class="icon-edit"></span>Welcome Student </a></div> 
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+Lower Header Section 
+-->
+    <div class="container">
+        <div id="gototop"></div>
+        <header id="header">
+            <div class="row">
+                <div class="span4">
+                    <h1>
+                        <a class="logo" href="index.html"><span>Online Tutor</span>
+                            <img src="../../assets/img/logo-bootstrap-shoping-cart.png" alt="OnlineTutor">
+                        </a>
+                    </h1>
+                </div>
+                <div class="span4">
+                </div>
+
+            </div>
+        </header>
+
+        <!--
+Navigation Bar Section 
+-->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li><a href="~/Student/Index">Home</a></li>
+                            <li class=""><a href="~/Student/ViewTutor">View Tutor</a></li>
+                             <li class=""><a href="~/Student/GetHiredByStudentId">Hire Details</a></li>
+                            <li class=""><a href="~/Student/ViewPayment">Payment</a></li>
+                              <li class=""><a href="~/Student/ChangePassword">Change Password</a></li>
+                            <li class=""><a href="~/Student/GetTeacherAssignProgress">View Progress</a></li>
+                           
+                        </ul>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 
+Body Section 
+-->
+        <div class="row">
+
+            <div class="span9">
+
+                @RenderBody()
+
+
+
+
+            </div>
+        </div>
+        <!-- 
+Clients 
+-->
+
+
+
+        </div>
+
+        <div class="copyright">
+            <div class="container">
+
+                <span>Copyright &copy; 2017<br>
+                   Islington College</span>
+            </div>
+        </div>
+        <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
+        <!-- Placed at the end of the document so the pages load faster -->
+       @* <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.easing-1.3.min.js"></script>
+        <script src="assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+        <script src="assets/js/shop.js"></script>*@
+
+      @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

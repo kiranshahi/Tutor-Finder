@@ -1,0 +1,102 @@
+﻿@model IEnumerable<TutorApplication.Models.Hire>
+
+@{
+    ViewBag.Title = "GetHiredByStudentId";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+<script src="~/Scripts/jquery-1.8.3.js"></script>
+<script src="~/assets/js/bootstrap.js"></script>
+<link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+
+<script>
+    function GetTotalAmount()
+    {
+        var empObj = {
+            fromdate: $('#FromDate').val(),
+            todate: $('#ToDate').val(),
+            
+        };
+      
+        $.ajax({
+            url: "/Home/GetAmount",
+            data: JSON.stringify(empObj),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                $('#EmployeeID').val(result.EmployeeID);
+               
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+        return false;
+    }
+</script>
+<div class="row">
+
+    <div class="span9">
+
+        <div class="well">
+            <h3>Hire Details</h3>
+            <hr class="soft" />
+
+
+<table class="table">
+    <tr>
+        <th>
+           TutorName
+        </th>
+        <th>
+           From Time
+        </th>
+        <th>
+           To Time
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalFee)
+        </th>
+        <th></th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tutor.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Schedule.FromTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Schedule.ToTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalFee)
+        </td>
+        <td>
+            @Html.ActionLink("Make Payment","Payment",new {id=item.HireId})
+        </td>
+       
+    </tr>
+}
+
+</table>
+            </div>
+        </div>
+    </div>

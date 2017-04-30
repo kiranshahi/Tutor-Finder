@@ -1,0 +1,83 @@
+﻿@model IEnumerable<TutorApplication.Models.ViewModel.TutorViewModel>
+
+@{
+    ViewBag.Title = "ViewTutor";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+<div class="row">
+
+    <div class="span9">
+
+        <div class="well">
+            <h3>List Of Tutors</h3>
+            <hr class="soft" />
+
+
+<table class="table table-hover">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HourlyRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+       
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.SubjectName)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Nationality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HourlyRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+     
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjectName)
+        </td>
+       
+        <td>
+            @Html.ActionLink("View Schedule", "ViewSchedule", new { id=item.TutorId}) 
+           
+          
+        </td>
+    </tr>
+}
+
+</table>
+            </div>
+        </div>
+    </div>

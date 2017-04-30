@@ -1,0 +1,49 @@
+﻿@model IEnumerable< TutorApplication.Models.Tutor>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+   
+		<div class="span9">
+            
+			<div class="well">
+                 <h3>Currently Available Tutor</h3>
+                <hr class="soft"/>
+
+
+                <div class="row-fluid">
+		<div id="newProductCar" class="carousel slide">
+            <div class="carousel-inner">
+			<div class="item active">
+			  <ul class="thumbnails">
+
+@foreach (var item in Model) {
+
+				<li class="span3">
+				<div class="thumbnail">
+					<a class="zoomTool" href="product_details.html" title="add to cart"><span></span> @item.Name</a>
+					
+					<a href="product_details.html"><img src="~/TutorImages/@item.Photo" alt="bootstrap-ring"></a>
+				</div>
+				</li>
+			
+}
+			  </ul>
+			  </div>
+		 
+		   </div>
+		  <a class="left carousel-control" href="#newProductCar" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#newProductCar" data-slide="next">&rsaquo;</a>
+		  </div>
+		  </div>
+
+
+
+
+
+                </div>
+            </div>
+    </div>
+
